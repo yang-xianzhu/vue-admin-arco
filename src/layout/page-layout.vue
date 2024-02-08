@@ -34,7 +34,7 @@
           <a-layout-content>
             <router-view />
           </a-layout-content>
-          <Footer v-if="footer" />
+          <!-- <Footer v-if="footer" /> -->
         </a-layout>
       </a-layout>
     </a-layout>
@@ -42,7 +42,7 @@
 </template>
 
 <script lang="ts">
-import Footer from '@/components/footer/index.vue'
+// import Footer from '@/components/footer/index.vue'
 import Menu from '@/components/menu/index.vue'
 import NavBar from '@/components/navbar/index.vue'
 import usePermission from '@/hooks/permission'
@@ -54,7 +54,7 @@ export default defineComponent({
   components: {
     NavBar,
     Menu,
-    Footer,
+    // Footer,
   },
   setup() {
     const appStore = useAppStore()
@@ -93,7 +93,7 @@ export default defineComponent({
     return {
       navbar,
       menu,
-      footer,
+      // footer,
       menuWidth,
       paddingStyle,
       collapse,
