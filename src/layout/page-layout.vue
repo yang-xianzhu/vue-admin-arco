@@ -26,11 +26,11 @@
             <Menu />
           </div>
         </a-layout-sider>
-
         <a-layout class="layout-content" :style="paddingStyle">
           <div v-if="navbar" class="layout-navbar">
             <NavBar />
           </div>
+
           <a-layout-content>
             <router-view />
           </a-layout-content>
@@ -86,6 +86,10 @@ export default defineComponent({
         if (roleValue && !permission.accessRouter(route)) router.push({ name: 'notFound' })
       }
     )
+
+    // 解决布局问题
+    const layoutNavbarLeft = computed<string>(() => (appStore.menu ? '250px' : '0'))
+
     return {
       navbar,
       menu,
@@ -184,7 +188,7 @@ export default defineComponent({
       transition: all 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
       position: fixed;
       top: 0;
-      left: 250px;
+      left: var(--layoutNavbarLeft);
       z-index: 100;
       width: 100%;
       min-width: @layout-max-width;

@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div class="navbar" :style="{ width: layoutNavbarLeft }">
     <div class="left-side">
       <a-space>
         <icon-menu-fold
@@ -238,6 +238,9 @@ const switchGit = () => {
 const open = (val: string) => {
   window.open(`https://vue-admin-beautiful.com/${val}`)
 }
+
+// 解决布局问题
+const layoutNavbarLeft = computed<string>(() => (appStore.menu ? 'calc(100% - 250px)' : '100%'))
 </script>
 
 <style scoped lang="less">
@@ -247,7 +250,7 @@ const open = (val: string) => {
   height: 100%;
   background-color: var(--color-bg-2);
   border-bottom: 1px solid var(--color-border);
-  width: calc(100% - 250px);
+  // width: var(--layoutNavbarLeft);
 }
 
 .left-side {
